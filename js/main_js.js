@@ -19,7 +19,7 @@ divs.forEach(function(el){
         this.innerHTML == "+" ? "+" : "";
         output.innerHTML = calc;
         
-        this.innerHTML == "=" ? output.innerHTML += `<h3>${eval(calc)}<h3/>`:""
+        this.innerHTML == "=" ? output.innerHTML += `<h3>${eval(calc).toFixed(5)}<h3/>`:""
         if(this.innerHTML == "AC"){
             output.innerHTML = ""
             calc = ""
