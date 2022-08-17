@@ -2,7 +2,7 @@ let divs = document.querySelectorAll(".parent div:not(.parent div:nth-child(1))"
 let output =  document.querySelector(".output")
 let ac = document.querySelector(".clear")
 let calc = ""
-tempar = [];
+
 divs.forEach(function(el){
     el.onclick = function(){
         this.style.backgroundColor = "white"
@@ -25,9 +25,11 @@ divs.forEach(function(el){
             calc = ""
         } 
         if(this.innerHTML == "DEL"){
+            tempar = [];
             tempar = calc.split("");
             tempar.pop();
             calc = tempar.join("");
+            output.innerHTML =  tempar.join("");
         }
 
     }
