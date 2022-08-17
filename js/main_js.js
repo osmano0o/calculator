@@ -29,6 +29,7 @@ divs.forEach(function(el){
             tempar = calc.split("");
             tempar.pop();
             calc = tempar.join("");
+            output.innerHTML = tempar.join("")
         }
     }
 })
