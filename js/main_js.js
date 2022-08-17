@@ -1,4 +1,4 @@
-let divs = document.querySelectorAll(".parent div:not(.parent div:nth-child(1))")
+let divs = document.querySelectorAll(".parent li:not(.parent li:nth-child(1))")
 let output =  document.querySelector(".output")
 let ac = document.querySelector(".clear")
 let calc = ""
@@ -19,7 +19,7 @@ divs.forEach(function(el){
         this.innerHTML == "+" ? "+" : "";
         output.innerHTML = calc;
         
-        this.innerHTML == "=" ? output.innerHTML += `<h3>${eval(calc).toFixed(5)}<h3/>`:""
+        this.innerHTML == "=" ? output.innerHTML += `<h3> ${parseFloat(eval(calc).toFixed(3))} <h3/>`:""
         if(this.innerHTML == "AC"){
             output.innerHTML = ""
             calc = ""
@@ -29,8 +29,6 @@ divs.forEach(function(el){
             tempar = calc.split("");
             tempar.pop();
             calc = tempar.join("");
-            output.innerHTML =  tempar.join("");
         }
-
     }
 })
