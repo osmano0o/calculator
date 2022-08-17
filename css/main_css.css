@@ -1,0 +1,40 @@
+body{
+    background-image: linear-gradient(to right , #00afd1, #00d67a);
+    font-family:Arial, Helvetica, sans-serif;
+    letter-spacing: 2.7px;
+}
+.parent{
+height: 400px;
+width: 250px;
+margin: 20px auto;
+display: grid;
+grid-template-columns: repeat(4,1fr);
+grid-template-rows:  80px;
+background-color: #eee;
+gap: 2px;
+font-size: 20px;
+}
+.parent div{
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.parent div:not(.parent div:nth-child(1)){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent div:nth-child(1){
+    grid-area: 1/ 1/ 1/ 5;
+    background-color: #012e2d; 
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+}
+.parent div:nth-child(2){
+    grid-area: 2/ span 2; 
+}
+.parent div:last-child{
+    grid-area: 6/ 3 / 7 / span 2; 
+}
