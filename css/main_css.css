@@ -48,3 +48,12 @@ font-size: 20px;
 .parent li:last-child{
     grid-area: 6/ 3 / 7 / span 2;
 }
+.blink{
+    animation: blink .15s linear 1 ;
+}
+
+@keyframes blink {
+    100%{
+        background-color: white;
+    }
+}

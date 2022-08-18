@@ -5,12 +5,17 @@ let calc = ""
 
 divs.forEach(function(el){
     el.onclick = function(){
-        this.style.backgroundColor = "white"
-        setTimeout(() => {
-            this.style.backgroundColor = "#ddd"
-        }, 150);
+        this.classList.add("blink")
+        this.onanimationend = function(){
+            this.classList.remove("blink")
+        }
         
 
+        tempar = []
+
+
+        
+        
         calc += !isNaN(+this.innerHTML - 5) ? this.innerHTML :
         this.innerHTML == "-" ? "-" :
         this.innerHTML == "/" ? "/" :
@@ -19,17 +24,18 @@ divs.forEach(function(el){
         this.innerHTML == "+" ? "+" : "";
         output.innerHTML = calc;
         
-        this.innerHTML == "=" ? output.innerHTML += `<h3> ${parseFloat(eval(calc).toFixed(3))} <h3/>`:""
         if(this.innerHTML == "AC"){
-            output.innerHTML = ""
+        output.innerHTML = ""
             calc = ""
-        } 
-        if(this.innerHTML == "DEL"){
-            tempar = [];
-            tempar = calc.split("");
-            tempar.pop();
-            calc = tempar.join("");
-            output.innerHTML = tempar.join("")
         }
+        else if(this.innerHTML == "="){
+            output.innerHTML += `<h3> ${parseFloat(eval(calc).toFixed(3))} <h3/>`
+            }
+            if(this.innerHTML == "DEL") {
+                tempar = calc.split("");
+                tempar.pop();
+                calc = tempar.join("");
+            }
+    
     }
 })
